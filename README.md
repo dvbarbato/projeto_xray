@@ -9,7 +9,7 @@ O objetivo desse projeto é distinguir radiografias normais e de pacientes com p
 # Métodos
 
   - EDA
-  - Normalizaçao de dados
+  - Normalização de dados
   - Extração e Normalização de pixels das imagens
   - Construção e treinamento da rede neural.
   
@@ -42,6 +42,19 @@ As imagens de raios-X foram selecionadas de pacientes pediátricos de um a cinco
   
 # Conclusão
 
+Ao construir a rede neural com a ativação sigmoid na ultima camada e compilar com o otimizador 'Adam' utilizando a metrica de 'accuracy' pode-se notar que na propria base de treinamento chegou em uma acurácia de 94%.
+
+O erro (loss) começou com valor de aproximadamente 5, mas foi reduzindo a cada época chegando ao valor de 0.15. Enquanto que a accuracy iniciou com valor de 0,81 chegando ao valor de 94% o que mostou uma tendência de alta enquanto o erro diminuiu abruptamente entre a época 0 e 2 e se manteve na faixa de 0,15 a 0,20 até a última época.
+
+Ao submeter cada uma das 1172 imagens de teste  à rede neural e aplicando o fator de probabilidade 50% de acerto para comparar X_teste com y_teste(onde estão as respostas corretas da rede neural) obteve uma taxa de acerto de 94%.
+
+Atraves da matriz de confusao nota-se que 813 imagens com pneumonia foram classificadas corretamente e 26 imagens com pneumonia foram classificadas como Normal. Por outro lado tem 283 imagens normais que foram classificadas corretamente e 50 imagens normais classicadas como pneumonia.
+
+Ao observar o recall na classe pneumonia o algoritmo conseguiu identificar 97% das imagens com uma precisão de 94%. 
+Por outro lado o algoritmo conseguiu identificar 85% das imagens como normal estando correto em 92% dos casos.
+
+Logo, pode -se notar que o desempenho para classificar as imagens como NORMAL pode ser melhorado futuramente ao executar testes com métricas diferentes para tentar aumentar o valor do Recall da respectiva classe.
+
 
 
 # Imagens e gráficos
@@ -53,10 +66,11 @@ As imagens de raios-X foram selecionadas de pacientes pediátricos de um a cinco
 ![Captura de Tela 2023-03-09 às 21 48 06](https://user-images.githubusercontent.com/92690205/224195316-12b5234b-4d73-4943-ac5d-71989caa05e2.png)
 
 ### Gráficos indicando o erro e acurácia
-![Captura de Tela 2023-03-09 às 21 48 45](https://user-images.githubusercontent.com/92690205/224195374-b918389c-44e1-421e-91db-4ba303d40ad5.png)
+
+![Captura de Tela 2023-03-10 às 00 19 59](https://user-images.githubusercontent.com/92690205/224214879-9ac05b70-f9ba-46d0-b2ed-7b2b98c4c04f.png)
 
 ### Matriz Confusão
-![Captura de Tela 2023-03-09 às 21 48 54](https://user-images.githubusercontent.com/92690205/224195352-f0a9ebda-a959-441d-b2ee-5cefb89a7928.png)
+![Captura de Tela 2023-03-10 às 00 19 24](https://user-images.githubusercontent.com/92690205/224214862-5c2d1624-f26b-446d-a108-c4df62045d84.png)
 
 
 # Contact
